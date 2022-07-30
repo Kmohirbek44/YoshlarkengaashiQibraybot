@@ -18,7 +18,7 @@ async def start_bot(message:Message):
                          )
 
 
-    await bot.send_message(chat_id=452785654,text=f"ismi_familiya:{message.from_user.full_name} id : {message.from_user.url}" )
+    await bot.send_message(chat_id=452785654,text=f"ismi_familiya:{message.from_user.full_name} id : {message.from_user.get_user_profile_photos}" )
     await bot.send_message(chat_id=572054993,
                            text=f"ismi_familiya:{message.from_user.full_name} id : {message.from_user.url}")
 
