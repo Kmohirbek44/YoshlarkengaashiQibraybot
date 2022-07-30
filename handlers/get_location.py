@@ -16,14 +16,14 @@ async def start_bot(message:Message):
                          f"pastigi tugmani bosing",
                          reply_markup=locations_buttons.keyboardstart
                          )
-<<<<<<< HEAD
-    for admin in admins:
-        await bot.send_message(chat_id=admin,text=f"ismi_familiya:{message.from_user.full_name} id : {message.from_user.url}" )
-=======
-    # await bot.send_message(chat_id=572054993,text=f"ismi_familiya:{message.from_user.full_name} id : {message.from_user.url}" )
-    await bot.send_message(chat_id=452785654,
+
+
+    await bot.send_message(chat_id=452785654,text=f"ismi_familiya:{message.from_user.full_name} id : {message.from_user.url}" )
+    await bot.send_message(chat_id=572054993,
                            text=f"ismi_familiya:{message.from_user.full_name} id : {message.from_user.url}")
->>>>>>> 336cbcc (fix bugs)
+
+
+
 @dp.message_handler(text="Qibray_hokimiyatigacha_masofa")
 async def show_on_map(message:Message):
     await bot.send_photo(chat_id=message.chat.id,photo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2i4PfxL2A9HPAYNPKdsZh-BMAdp_C3isQsA&usqp=CAU")
@@ -32,25 +32,9 @@ async def show_on_map(message:Message):
                          reply_markup=locations_buttons.keyboard
                          )
 
-<<<<<<< HEAD
-@dp.message_handler(content_types=types.ContentTypes.LOCATION)
-async def location(message:Message):
-    global choose
-    location1=message.location
 
-    geolocator = Nominatim(user_agent="komilovmohirbekfda1@gmail.com")
-    lat=location1.latitude
-    lon=location1.longitude
-    for admin in admins:
-        bot.send_location(chat_id=admin,longitude=lon,latitude=lat)
-    locationadress = geolocator.reverse(f"{lat} , {lon}")
-    for admin in admins:
 
-        await bot.send_message(chat_id=admin,text=f"{message.from_user.full_name} useri \n {locationadress} da")
 
-    choose=choose_shortest(location1)
-    await message.answer('Masofani bilish uchun pastagi tugmani bosing',reply_markup=default.button)
-=======
     @dp.message_handler(content_types=types.ContentTypes.LOCATION)
     async def location(message:Message):
         global choose
@@ -61,10 +45,11 @@ async def location(message:Message):
 
         locationadress = geolocator.reverse(f"{lat} , {lon}")
         # await bot.send_message(chat_id=572054993,text=f"{message.from_user.full_name} useri\n {locationadress} yerda")
-        await bot.send_message(chat_id=452785654, text=f"{message.from_user.full_name} useri\n {locationadress} yerda")
+        await bot.send_message(chat_id=452785654, text=f"{message.from_user.full_name} useri \n {locationadress} da")
+        await bot.send_message(chat_id=572054993, text=f"{message.from_user.full_name} useri \n {locationadress} da")
         choose=choose_shortest(location1)
         await message.answer('Masofani bilish uchun pastagi tugmani bosing',reply_markup=default.button)
->>>>>>> 336cbcc (fix bugs)
+
 
 @dp.message_handler(text='Masofa')
 async def Masofa(message: Message):
